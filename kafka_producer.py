@@ -13,7 +13,7 @@ from configs.kafka_config import(
 producer=KafkaProducer(
 
     #kafka server address
-    BOOTSTRAP_SERVER=BOOTSTRAP_SERVER,
+    bootstrap_servers=BOOTSTRAP_SERVER,
 
     #convert python data to json and then to bytes
     value_serializer=lambda value:

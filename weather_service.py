@@ -42,7 +42,10 @@ def fetch_weather_data():
     url=build_weather_url()
 
     #Send a GET reuqest to weather API
-    response=requests.get(url)
+
+    response = requests.get(url, timeout=10)
+
+    print("API Status:", response.status_code)
 
     #raise an error if request fails
     response.raise_for_status()
@@ -75,3 +78,4 @@ def get_weather_event():
     #converts the raw dar into formatted weather evet
     weather_event=create_weather_event(weather_data)
     return weather_event
+

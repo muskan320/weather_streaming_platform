@@ -86,3 +86,23 @@ def insert_weather_event(event):
         connection.rollback()
 
         logging.error(f"Database Error : {e}")
+
+def get_all_weather():
+    """
+    fetch all weather records from the database
+    """        
+    try:
+        query="""
+        SELECT*
+        FROM weather_readings
+        OEDER BY event_time DESC
+        """
+
+        cursor.execute(query)
+        records=cursor.fetcall()
+        return records
+    except Exception as e:
+        logging.error(
+            f"Database Read Error: {e}"
+        )
+        return []

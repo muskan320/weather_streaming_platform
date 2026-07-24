@@ -28,4 +28,4 @@ connection = mysql.connector.connect(
 
 )
 
-cursor = connection.cursor()
+cursor = connection.cursor(dictionary=True)
